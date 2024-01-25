@@ -1,0 +1,261 @@
+/* ########### FONTS ############ */
+@import ../sass/_variable
+@import ../../node_modules/bootstrap/scss/bootstrap.scss
+@import url(https://db.onlinewebfonts.com/c/82848488b73a87d72f2436c02b9ab608?family=ONE+PIECE)
+
+
+/* ############ BODY ############  */
+*
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+    text-decoration: none
+    list-style: none
+    font-family: "ONE PIECE"
+
+body
+    background-color: #3e3c3c
+    font-family: Arial, Helvetica, sans-serif
+    height: 100vh
+    width: 100vw
+    display: flex
+    justify-content: center
+    align-items: flex-start
+    padding-top: 50px
+    position: relative
+  
+
+    #logo1
+        position: absolute
+        top: 35px
+        left: 305px
+        z-index: 2
+    #logo2
+        position: absolute
+        top: 35px
+        right: 305px
+        z-index: 2
+    #logo3
+        position: absolute
+        bottom: 250px
+        left: 305px
+        z-index: 2
+    #logo4
+        position: absolute
+        bottom: 250px
+        right: 305px
+        z-index: 2
+
+
+    #info
+        margin-top: 10px
+        border-radius: 50px
+        background: #3e3c3c
+        box-shadow: inset 20px -20px 60px #353333,inset -20px 20px 60px #474545
+        height: 250px
+        width: 1000px
+        display: none
+        justify-content: center
+        align-items: center 
+        flex-wrap: wrap
+
+
+        p
+            font-size: 30px
+            color: white
+        #info1
+            height: 80%
+            width: 50%
+            padding: 20px
+            color: white
+            position: relative
+            span
+                position: absolute
+                top: 65px
+                left: 132px
+            svg
+                position: absolute
+                top: 0px
+                left: 0px
+            svg circle
+                fill: none
+                stroke: #64e079
+                stroke-width: 5px
+                height: 0%
+                width: 0%
+                transform: translate(50%, 50%)
+                stroke-dasharray: 190%
+                stroke-dashoffset: 1900%
+                stroke-linecap: round
+            .bgCircle
+                stroke-dashoffset: 0%
+                stroke: rgba(167, 29, 29, 0.187)
+            input
+                position: absolute
+                bottom: 0px
+                height: 40px
+                width: 110px
+                font-size: 25px
+                color: white   
+                border-radius: 50px
+                background: linear-gradient(45deg, #424040, #383636)
+                box-shadow:  20px -20px 60px #353333, -20px 20px 60px #474545
+            #attack
+                left: 50px
+            #defense
+                left: 180px    
+        #info2
+            height: 80%
+            width: 50%
+            padding: 20px
+            display: flex
+            justify-content: flex-end
+            color: white
+            position: relative
+            span
+                position: absolute
+                top: 65px
+                right: 132px
+            svg
+                position: absolute
+                top: 0px
+                right:  0px
+            svg circle
+                fill: none
+                stroke: #64e079
+                stroke-width: 5px
+                height: 0%
+                width: 0%
+                transform: translate(50%, 50%)
+                stroke-dasharray: 190%
+                stroke-dashoffset: 1900%
+                stroke-linecap: round
+            .bgCircle
+                stroke-dashoffset: 0%
+                stroke: rgba(167, 29, 29, 0.187)
+
+
+
+
+
+    .screen
+        border-radius: 50px
+        background:  linear-gradient(45deg, #383636, #424040)
+        box-shadow:  20px -20px 60px #353333,-20px 20px 60px #474545
+        height: 600px
+        width: 1000px
+        display: flex
+        justify-content: center
+        align-items: center
+        #game
+            height: 98%
+            width:99%
+            background: url('https://media.istockphoto.com/id/1333010525/fr/vectoriel/simple-illustration-de-pixel-art-plat-de-larri%C3%A8re-plan-de-paysage-ext%C3%A9rieur-de-dessin.jpg?s=612x612&w=0&k=20&c=PvVJuZuaH_hWssYFStZiGIdF3PAUsCiPtb9VncBg-Zg=') 
+            background-position: center
+            background-size: cover
+            border-radius: 15px
+            box-shadow:  20px -20px 60px #353333,-20px 20px 60px #474545
+            position: relative
+            display: none
+            img
+                position: absolute
+                right: 80px
+                bottom: 45px
+
+
+
+        #select
+            height: 100%
+            width: 100%
+            display: none
+            justify-content: center
+            align-items: center 
+            flex-direction: column
+            color: white
+            gap: 50px
+            h1
+                font-size: 80px
+            div
+                display: flex
+                div
+                    display: flex
+                    flex-direction: column
+                    justify-content: center
+                    align-items: center
+                    border-radius:50px 
+                    color: white
+                    gap: 10px
+                    &:hover
+                        box-shadow: 0px 20px 20px 2px rgba(156, 150, 150, 0.3019607843)
+                        border-bottom: solid 2px white
+                 
+
+
+
+
+        #acceuil
+            height: 98%
+            width:99%
+            background: linear-gradient(rgba(0, 0, 0, 0.586), rgba(0, 0, 0, 0.993)) ,url('https://hitek.fr/img/up_o/1583148898/hitek_78c33f84d15a2120a59e33c32b0f6a2c_1612431718.jpeg') 
+            background-position: center
+            background-size: cover
+            border-radius: 15px
+            box-shadow:  20px -20px 60px #353333,-20px 20px 60px #474545
+            position: relative
+            display: none
+            justify-content: center
+            align-items: flex-start
+            padding-top: 80px 
+            h2
+                font-size: 150px
+                color: #ffcc00
+                text-shadow: 9px 8px 10px black
+            input
+                position: absolute
+                height: 60px
+                width: 150px
+                top: 420px
+                border-radius:50px
+                border: none 
+                background: #151515
+                color: white
+                font-size: 40px
+                
+                &:hover
+                    background: #ffcc00
+                    color: black
+              
+                &:active
+                    border-radius: 50px
+                    box-shadow: inset 20px -20px 60px #0000006c,inset -20px 20px 60px #705b03
+
+
+
+
+    
+
+/* ########### HEADER ########### */
+@import ../modules/_header
+
+/* ############ MAIN ############ */
+
+
+/* ########### FOOTER ########### */
+@import ../modules/_footer
+
+/* ######### RESPONSIVE ######### */
+/* ### SMARTPHONE ### */
+@media (max-width: 576px)
+
+
+/* ### TABLET ### */
+@media (min-width: 577px) and (max-width: 768px)
+
+
+/* ### DESKTOP ### */
+@media (min-width: 769px) and (max-width: 992px)
+
+
+/* ### BIG DESKTOP ### */
+@media (min-width: 993px)
+
