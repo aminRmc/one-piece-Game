@@ -25,7 +25,8 @@
       
         <section class='screen'>
           <div id="game">
-            <img src="./public/assets/image/luffy-defense.gif" alt="" height="250px">
+            <img id="you" src="./public/assets/image/zoro/zoro-marche.gif" alt="" height="250px">
+            <img id="cpu" src="" alt="" height="250px">
           </div>
 
 
@@ -34,8 +35,8 @@
 
 
           <div id="acceuil">
-            <h2>one piece game</h2>
-            <input type="button" value="START">
+            <h2>one piece  game</h2>
+            <input id="start" type="button" value="START">
           </div>
 
 
@@ -44,12 +45,25 @@
         <div id="select">
             <h1>chose your character</h1>
             <div>
-            <div> <img src="./public/assets/image/luffy normal.gif" alt="" height="200px"> <h2>luffy</h2> </div>
-            <div> <img src="./public/assets/image/luffy normal.gif" alt="" height="200px"> <h2>luffy</h2></div>
-            <div> <img src="./public/assets/image/luffy normal.gif" alt="" height="200px"><h2>luffy</h2></div>
-            <div> <img src="./public/assets/image/luffy normal.gif" alt="" height="200px"><h2>luffy</h2></div>
-            <div> <img src="./public/assets/image/luffy normal.gif" alt="" height="200px"><h2>luffy</h2></div>
+            <div id="luffy"> <img  src="./public/assets/image/luffy-normal.gif" alt="" height="200px"> <h2>luffy</h2> </div>
+            <div id="zoro"> <img  src="./public/assets/image/zoro/zoro-normal.gif" alt="" height="200px"> <h2>zorro</h2></div>
+            <div id="sanji"> <img  src="./public/assets/image/sanji/sanji-normal.gif" alt="" height="200px"><h2>sanji</h2></div>
+            <div> <img src="./public/assets/image/luffy-normal.gif" alt="" height="200px"><h2>luffy</h2></div>
+            <div> <img src="./public/assets/image/luffy-normal.gif" alt="" height="200px"><h2>luffy</h2></div>
            </div>
+        </div>
+
+
+        <div id="screen-win">
+            <img src="./public/assets/image/bg/win.png" alt="" height="250px">
+            <img id="you-win" src="./public/assets/image/luffy-normal.gif" alt="" height="200px">
+            <img id="cpu-lose" src="./public/assets/image/luffy-mort.png" alt="" height="200px">
+        </div>
+
+        <div id="screen-lose">
+            <img src="./public/assets/image/bg/lose.png" alt="" height="250px">
+            <img id="you-lose" src="./public/assets/image/luffy-mort.gif" alt="" height="200px">
+            <img id="cpu-win" src="./public/assets/image/luffy-normal.png" alt="" height="200px">
         </div>
         </section>
 
@@ -69,31 +83,31 @@
         <section id="info">
             <div id="info1">
                 <h1>you</h1>
-                
-                        <svg>
-                            <circle class="quatrevignt" r="20%"></circle>
-                            <circle class="bgCircle" r="15%"></circle>
-                        </svg>
-                            <span>200 PV</span>
+                <div id="you-live">
+                <div id="hp"></div>
+                <div id="hp-bg"></div>
+                <p>200 hp</p>
+                </div>
                 <input id="attack" type="button" value="attack">
                 <input id="defense" type="button" value="defense">
                 
                 <p></p>
             </div>
             <div id="info2">
-                <h1>cpu</h1>
-                <svg>
-                    <circle class="quatrevignt" r="20%"></circle>
-                    <circle class="bgCircle" r="15%"></circle>
-                </svg>
-                    <span>200 PV</span>
+                <h1>you</h1>
+                <div id="cpu-live">
+                    <div id="hp-cpu"></div>
+                    <div id="hp-bg-cpu"></div>
+                    <p>200 hp</p>
+                    </div>
+
             </div>
             <p>you are defend your life</p>
         </section>
     </main>
 
     <!-- ########## SCRIPTS ######### -->
-    <script src="./public/js/main.js"></script>
+    <script type="module" src="./public/js/main.js"></script>
     <!-- <！ script JS--> 
     <script src="./node_modules/@popperjs/core/dist/umd/popper.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>

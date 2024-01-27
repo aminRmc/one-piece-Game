@@ -11925,31 +11925,6 @@ body #info #info1 {
   color: white;
   position: relative;
 }
-body #info #info1 span {
-  position: absolute;
-  top: 65px;
-  left: 132px;
-}
-body #info #info1 svg {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-}
-body #info #info1 svg circle {
-  fill: none;
-  stroke: #64e079;
-  stroke-width: 5px;
-  height: 0%;
-  width: 0%;
-  transform: translate(50%, 50%);
-  stroke-dasharray: 190%;
-  stroke-dashoffset: 1900%;
-  stroke-linecap: round;
-}
-body #info #info1 .bgCircle {
-  stroke-dashoffset: 0%;
-  stroke: rgba(167, 29, 29, 0.187);
-}
 body #info #info1 input {
   position: absolute;
   bottom: 0px;
@@ -11960,6 +11935,38 @@ body #info #info1 input {
   border-radius: 50px;
   background: linear-gradient(45deg, #424040, #383636);
   box-shadow: 20px -20px 60px #353333, -20px 20px 60px #474545;
+}
+body #info #info1 #you-live {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body #info #info1 #you-live #hp {
+  height: 10px;
+  width: 150px;
+  background: red;
+  z-index: 2;
+  position: absolute;
+  top: 76px;
+  left: 20px;
+  border-radius: 10px;
+}
+body #info #info1 #you-live #hp-bg {
+  height: 10px;
+  width: 150px;
+  background: rgba(255, 252, 252, 0.3921568627);
+  position: absolute;
+  top: 76px;
+  z-index: 1;
+  left: 20px;
+  border-radius: 10px;
+}
+body #info #info1 #you-live p {
+  text-align: center;
+  font-size: 25px;
+  position: absolute;
+  top: 62px;
+  left: 180px;
 }
 body #info #info1 #attack {
   left: 50px;
@@ -11976,30 +11983,37 @@ body #info #info2 {
   color: white;
   position: relative;
 }
-body #info #info2 span {
+body #info #info2 #cpu-live {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body #info #info2 #cpu-live #hp-cpu {
+  height: 10px;
+  width: 150px;
+  background: red;
+  z-index: 2;
   position: absolute;
-  top: 65px;
-  right: 132px;
+  top: 76px;
+  right: 20px;
+  border-radius: 10px;
 }
-body #info #info2 svg {
+body #info #info2 #cpu-live #hp-bg-cpu {
+  height: 10px;
+  width: 150px;
+  background: rgba(255, 252, 252, 0.3921568627);
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: 76px;
+  z-index: 1;
+  right: 20px;
+  border-radius: 10px;
 }
-body #info #info2 svg circle {
-  fill: none;
-  stroke: #64e079;
-  stroke-width: 5px;
-  height: 0%;
-  width: 0%;
-  transform: translate(50%, 50%);
-  stroke-dasharray: 190%;
-  stroke-dashoffset: 1900%;
-  stroke-linecap: round;
-}
-body #info #info2 .bgCircle {
-  stroke-dashoffset: 0%;
-  stroke: rgba(167, 29, 29, 0.187);
+body #info #info2 #cpu-live p {
+  text-align: center;
+  font-size: 25px;
+  position: absolute;
+  top: 62px;
+  right: 180px;
 }
 body .screen {
   border-radius: 50px;
@@ -12014,7 +12028,7 @@ body .screen {
 body .screen #game {
   height: 98%;
   width: 99%;
-  background: url("https://media.istockphoto.com/id/1333010525/fr/vectoriel/simple-illustration-de-pixel-art-plat-de-larri%C3%A8re-plan-de-paysage-ext%C3%A9rieur-de-dessin.jpg?s=612x612&w=0&k=20&c=PvVJuZuaH_hWssYFStZiGIdF3PAUsCiPtb9VncBg-Zg=");
+  background: url("./../assets/image/bg/arene.jpg");
   background-position: center;
   background-size: cover;
   border-radius: 15px;
@@ -12022,10 +12036,17 @@ body .screen #game {
   position: relative;
   display: none;
 }
-body .screen #game img {
+body .screen #game #cpu {
   position: absolute;
-  right: 80px;
+  right: 200px;
   bottom: 45px;
+  transition: 3s;
+}
+body .screen #game #you {
+  position: absolute;
+  left: 200px;
+  bottom: 45px;
+  transform: rotateY(180deg);
 }
 body .screen #select {
   height: 100%;
@@ -12036,14 +12057,18 @@ body .screen #select {
   flex-direction: column;
   color: white;
   gap: 50px;
+  transition: 2s;
 }
 body .screen #select h1, body .screen #select .h1 {
   font-size: 80px;
 }
 body .screen #select div {
   display: flex;
+  width: 90%;
 }
 body .screen #select div div {
+  height: 100%;
+  width: 20%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12059,13 +12084,13 @@ body .screen #select div div:hover {
 body .screen #acceuil {
   height: 98%;
   width: 99%;
-  background: linear-gradient(rgba(0, 0, 0, 0.586), rgba(0, 0, 0, 0.993)), url("https://hitek.fr/img/up_o/1583148898/hitek_78c33f84d15a2120a59e33c32b0f6a2c_1612431718.jpeg");
+  background: linear-gradient(rgba(0, 0, 0, 0.586), rgba(0, 0, 0, 0.993)), url("./../assets/image/bg/acceuil.jpeg");
   background-position: center;
   background-size: cover;
   border-radius: 15px;
   box-shadow: 20px -20px 60px #353333, -20px 20px 60px #474545;
   position: relative;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: flex-start;
   padding-top: 80px;
@@ -12074,6 +12099,7 @@ body .screen #acceuil h2, body .screen #acceuil .h2 {
   font-size: 150px;
   color: #ffcc00;
   text-shadow: 9px 8px 10px black;
+  text-align: center;
 }
 body .screen #acceuil input {
   position: absolute;
@@ -12093,6 +12119,58 @@ body .screen #acceuil input:hover {
 body .screen #acceuil input:active {
   border-radius: 50px;
   box-shadow: inset 20px -20px 60px rgba(0, 0, 0, 0.4235294118), inset -20px 20px 60px #705b03;
+}
+body .screen #screen-win {
+  height: 98%;
+  width: 99%;
+  background: linear-gradient(rgba(0, 0, 0, 0.586), rgba(0, 0, 0, 0.993)), url("./../assets/image/bg/arene.jpg");
+  background-position: center;
+  background-size: cover;
+  border-radius: 15px;
+  box-shadow: 20px -20px 60px #353333, -20px 20px 60px #474545;
+  position: relative;
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 80px;
+}
+body .screen #screen-win #you-win {
+  position: absolute;
+  left: 200px;
+  bottom: 45px;
+  transform: rotateY(180deg);
+}
+body .screen #screen-win #cpu-lose {
+  position: absolute;
+  right: 200px;
+  bottom: 45px;
+  transition: 3s;
+}
+body .screen #screen-lose {
+  height: 98%;
+  width: 99%;
+  background: linear-gradient(rgba(0, 0, 0, 0.586), rgba(0, 0, 0, 0.993)), url("./../assets/image/bg/arene.jpg");
+  background-position: center;
+  background-size: cover;
+  border-radius: 15px;
+  box-shadow: 20px -20px 60px #353333, -20px 20px 60px #474545;
+  position: relative;
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 80px;
+}
+body .screen #screen-lose #you-lose {
+  position: absolute;
+  left: 200px;
+  bottom: 45px;
+  transform: rotateY(180deg);
+}
+body .screen #screen-lose #cpu-win {
+  position: absolute;
+  right: 200px;
+  bottom: 45px;
+  transition: 3s;
 }
 
 /* ########### HEADER ########### */
