@@ -7,6 +7,7 @@ let char = select.children[1].querySelectorAll(`div`)
 let info = document.querySelector(`#info`)
 let btnAttack = document.querySelector(`#attack`)
 let btnDefend = document.querySelector(`#defense`)
+let btnReplay = document.querySelector(`#replay`)
 let you = document.querySelector(`#you`)
 let cpu =document.querySelector(`#cpu`)
 let youHp = document.querySelector(`#you-live`).querySelector(`p`)
@@ -19,6 +20,8 @@ let winLose = document.querySelector(`#win-lose`)
 let attack = new Audio("./public/assets/music/attack.mp3");
 let  track1 = new Audio("./public/assets/music/Track 1.mp3");
 let  button = new Audio("./public/assets/music/button.mp3");
+let  winS = new Audio("./public/assets/music/win.mp3");
+let  loseS = new Audio("./public/assets/music/lose.mp3");
 let text = info.querySelectorAll(`p`)[2]
 
 // Ajouter un gestionnaire d'événement pour l'événement 'ended'
@@ -29,7 +32,13 @@ track1.addEventListener('ended', function() {
     track1.play();
 });
 
-// Commencer la lectur
+//replay
+btnReplay.addEventListener(`click`,()=>{
+    document.location.reload();
+})
+
+
+
 
 
 //start
@@ -45,9 +54,7 @@ button.play();
 //!chose a ennemie and player
 
     let enemie 
-    let tabEnemie = [Perso.luffy,Perso.sanji,Perso.zoro]
-    enemie = tabEnemie[Math.round(Math.random() * tabEnemie.length)]
-    cpu.src = enemie.normal
+    let tabEnemie 
     let player
     char.forEach(element => {
         element.addEventListener('click', ()=>{
@@ -58,15 +65,24 @@ button.play();
             info.style.display = `flex`
             switch (element.id) {
                 case `luffy`:
-                     player = Perso.luffy
+                    player = Perso.luffy
+                    tabEnemie = [,Perso.sanji,Perso.zoro]
+                    enemie = tabEnemie[Math.round(Math.random() * tabEnemie.length)]
+                    cpu.src = enemie.normal
                     break;
             
                 case `sanji`:
-                     player = Perso.sanji
+                    player = Perso.sanji
+                    tabEnemie = [Perso.luffy,Perso.zoro]
+                    enemie = tabEnemie[Math.round(Math.random() * tabEnemie.length)]
+                    cpu.src = enemie.normal
                     break;
             
                 case `zoro`:
                      player = Perso.zoro
+                     tabEnemie = [Perso.luffy,Perso.sanji]
+                     enemie = tabEnemie[Math.round(Math.random() * tabEnemie.length)]
+                     cpu.src = enemie.normal
                     break;
               
             
@@ -110,21 +126,15 @@ let fAttack = ()=>{
                 attack.play();
                 cpu.style.transition= `0s `
                 enemie.hp-= player.ap 
-                if (player.hp <= 0 ) {
-                    winLose.src = "./public/assets/image/bg/lose.png"
-                    youWin.src = enemie.normal
-                    win.style.display = 'flex'
-                    info.style.display = `none`
-                    game.style.display =` none`
-
-                }
-                else if (enemie.hp <= 0) {
+                if (enemie.hp <= 0) {
                     winLose.src = "./public/assets/image/bg/win.png"
                     youWin.src = player.normal
                     win.style.display = 'flex'
                     info.style.display = `none`
                     game.style.display =` none`
-                    
+                    track1.pause()
+                    winS.play();
+                    btnReplay.style.display = 'block'
                     
                 }
                 cpuHp.innerText = `${ enemie.hp} hp`
@@ -164,22 +174,18 @@ let fAttack = ()=>{
             
             setTimeout(() => {
                 player.hp = player.hp-= enemie.ap 
-                if (player.hp <= 0 ) {
+                if (enemie.hp <= 0) { 
+                }
+                else if (player.hp <= 0 ) {
                     winLose.src = "./public/assets/image/bg/lose.png"
                     youWin.src = enemie.normal
                     win.style.display = 'flex'
                     info.style.display = `none`
                     game.style.display =` none`
+                    track1.pause()
+                    loseS.play();
+                    btnReplay.style.display = 'block'
 
-                }
-                else if (enemie.hp <= 0) {
-                    winLose.src = "./public/assets/image/bg/win.png"
-                    youWin.src = player.normal
-                    win.style.display = 'flex'
-                    info.style.display = `none`
-                    game.style.display =` none`
-                    
-                    
                 }
                 youHp.innerText = `${player.hp } hp`
                 hp.style.width = `${player.hp}px`
@@ -249,16 +255,11 @@ let defense = ()=>{
                     win.style.display = 'flex'
                     info.style.display = `none`
                     game.style.display =` none`
+                    track1.pause();
+                    loseS.play();
+                    btnReplay.style.display = 'block'
 
-                }
-                else if (enemie.hp <= 0) {
-                    winLose.src = "./public/assets/image/bg/win.png"
-                    youWin.src = player.normal
-                    win.style.display = 'flex'
-                    info.style.display = `none`
-                    game.style.display =` none`
-                    
-                    
+
                 }
                 youHp.innerText = `${player.hp } hp`
                 hp.style.width = `${player.hp}px`
