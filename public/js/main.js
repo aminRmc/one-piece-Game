@@ -104,7 +104,8 @@ let fAttack = ()=>{
                 cpu.style.transition= `0s `
                 enemie.hp-= player.ap 
                 if (player.hp <= 0 ) {
-                    winLose.src = ""
+                    winLose.src = "./public/assets/image/bg/lose.png"
+                    youWin.src = enemie.normal
                     win.style.display = 'flex'
                     info.style.display = `none`
                     game.style.display =` none`
@@ -157,7 +158,8 @@ let fAttack = ()=>{
             setTimeout(() => {
                 player.hp = player.hp-= enemie.ap 
                 if (player.hp <= 0 ) {
-                    winLose.src = ""
+                    winLose.src = "./public/assets/image/bg/lose.png"
+                    youWin.src = enemie.normal
                     win.style.display = 'flex'
                     info.style.display = `none`
                     game.style.display =` none`

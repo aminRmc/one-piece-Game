@@ -11880,26 +11880,26 @@ body {
 }
 body #logo1 {
   position: absolute;
-  top: 35px;
-  left: 305px;
+  top: 4%;
+  left: 18.5%;
   z-index: 2;
 }
 body #logo2 {
   position: absolute;
-  top: 35px;
-  right: 305px;
+  top: 4%;
+  right: 18.5%;
   z-index: 2;
 }
 body #logo3 {
   position: absolute;
-  bottom: 250px;
-  left: 305px;
+  bottom: 28%;
+  left: 18.5%;
   z-index: 2;
 }
 body #logo4 {
   position: absolute;
-  bottom: 250px;
-  right: 305px;
+  bottom: 28%;
+  right: 18.5%;
   z-index: 2;
 }
 body #info {
