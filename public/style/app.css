@@ -12064,6 +12064,7 @@ body .screen #select h1, body .screen #select .h1 {
 }
 body .screen #select div {
   display: flex;
+  justify-content: center;
   width: 90%;
 }
 body .screen #select div div {
@@ -12140,12 +12141,6 @@ body .screen #screen-win #you-win {
   bottom: 45px;
   transform: rotateY(180deg);
 }
-body .screen #screen-win #cpu-lose {
-  position: absolute;
-  right: 200px;
-  bottom: 45px;
-  transition: 3s;
-}
 body .screen #screen-lose {
   height: 98%;
   width: 99%;
@@ -12159,18 +12154,6 @@ body .screen #screen-lose {
   justify-content: center;
   align-items: flex-start;
   padding-top: 80px;
-}
-body .screen #screen-lose #you-lose {
-  position: absolute;
-  left: 200px;
-  bottom: 45px;
-  transform: rotateY(180deg);
-}
-body .screen #screen-lose #cpu-win {
-  position: absolute;
-  right: 200px;
-  bottom: 45px;
-  transition: 3s;
 }
 
 /* ########### HEADER ########### */

@@ -5,7 +5,6 @@ let select = document.querySelector(`#select`)
 let game = document.querySelector(`#game`)
 let char = select.children[1].querySelectorAll(`div`)
 let info = document.querySelector(`#info`)
-console.log(char);
 let btnAttack = document.querySelector(`#attack`)
 let btnDefend = document.querySelector(`#defense`)
 let you = document.querySelector(`#you`)
@@ -13,8 +12,15 @@ let cpu =document.querySelector(`#cpu`)
 let youHp = document.querySelector(`#you-live`).querySelector(`p`)
 let cpuHp = document.querySelector(`#cpu-live`).querySelector(`p`)
 let win = document.querySelector(`#screen-win`)
-let lose = document.querySelector(`#screen-lose`)
-console.log(youHp);
+let hp = document.querySelector(`#hp`)
+let hp2 = document.querySelector(`#hp-cpu`)
+let youWin = document.querySelector(`#you-win`)
+let winLose = document.querySelector(`#win-lose`)
+let attack = new Audio("./public/assets/music/attack.mp3");
+let  track1 = new Audio("./public/assets/music/Track 1.mp3");
+let  button = new Audio("./public/assets/music/button.mp3");
+let text = info.querySelectorAll(`p`)[2]
+
 
 
 
@@ -23,6 +29,8 @@ console.log(youHp);
 start.addEventListener('click',()=>{
 acceuil.style.display =  `none`
 select.style.display = `flex`
+button.play();
+
 
 })
 
@@ -36,6 +44,8 @@ select.style.display = `flex`
     let player
     char.forEach(element => {
         element.addEventListener('click', ()=>{
+            track1.play();
+            button.play();
             select.style.display =`none`
             game.style.display = `flex`
             info.style.display = `flex`
@@ -73,9 +83,11 @@ select.style.display = `flex`
 let fAttack = ()=>{
 
     btnAttack.addEventListener('click',()=>{
+        text.innerText = `you attack the enemy`
+        button.play();
         btnAttack.style.display = `none`
         btnDefend.style.display = `none`
-        enemie.ap = Math.floor( Math.random() * (40 - 20) + 20);
+        enemie.ap = Math.floor( Math.random() * (60 - 20) + 20);
         console.log(enemie.ap);
         setTimeout(() => {
             you.src = player.marche
@@ -88,21 +100,27 @@ let fAttack = ()=>{
             
             setTimeout(() => {
                 cpu.style.filter= `grayscale(10000%)`
+                attack.play();
                 cpu.style.transition= `0s `
                 enemie.hp-= player.ap 
                 if (player.hp <= 0 ) {
-                    lose.style.display = 'flex'
+                    winLose.src = ""
+                    win.style.display = 'flex'
                     info.style.display = `none`
                     game.style.display =` none`
 
                 }
-                if (enemie.hp <= 0) {
+                else if (enemie.hp <= 0) {
+                    winLose.src = "./public/assets/image/bg/win.png"
+                    youWin.src = player.normal
                     win.style.display = 'flex'
                     info.style.display = `none`
                     game.style.display =` none`
+                    
+                    
                 }
                 cpuHp.innerText = `${ enemie.hp} hp`
-                
+                hp2.style.width = `${enemie.hp}px`
             }, 1500);
         }, 2000);
         setTimeout(() => {
@@ -129,6 +147,7 @@ let fAttack = ()=>{
         setTimeout(() => {
             cpu.style.transition = `2s`
             cpu.style.right =`400px`
+            text.innerText = `the enemy is attacking you`
         }, 8800);
     
         setTimeout(() => {
@@ -138,17 +157,25 @@ let fAttack = ()=>{
             setTimeout(() => {
                 player.hp = player.hp-= enemie.ap 
                 if (player.hp <= 0 ) {
-                    alert(`salut`)
-                    game.style.display =` none`
-
-                }
-                if (enemie.hp <= 0) {
+                    winLose.src = ""
                     win.style.display = 'flex'
                     info.style.display = `none`
                     game.style.display =` none`
+
+                }
+                else if (enemie.hp <= 0) {
+                    winLose.src = "./public/assets/image/bg/win.png"
+                    youWin.src = player.normal
+                    win.style.display = 'flex'
+                    info.style.display = `none`
+                    game.style.display =` none`
+                    
+                    
                 }
                 youHp.innerText = `${player.hp } hp`
+                hp.style.width = `${player.hp}px`
                 you.style.filter= `grayscale(10000%)`
+                attack.play();
                 you.style.transition= `0s `
             }, 1000);
        
@@ -170,12 +197,11 @@ let fAttack = ()=>{
             cpu.style.transform = `rotateY(0deg)`
             btnAttack.style.display =`block `
             btnDefend.style.display =`block `
+            text.innerText = ``
         }, 14000);
        
     
-        if (player.hp <= 0 || enemie.hp <= 0) {
-            alert(`salut`)
-        }
+       
     })
     
 }
@@ -186,6 +212,7 @@ let fAttack = ()=>{
 //! fuction defend
 let defense = ()=>{
     btnDefend.addEventListener('click', ()=>{
+        button.play();      
         btnAttack.style.display = `none`
         btnDefend.style.display = `none`
     
@@ -196,28 +223,37 @@ let defense = ()=>{
         setTimeout(() => {
             cpu.style.transition = `2s`
             cpu.style.right =`400px`
+            text.innerText = `the enemy is attacking you`
         }, 3000);
     
         setTimeout(() => {
             cpu.style.transition = ``
             cpu.src = enemie.attack
             you.src = player.defend
+            text.innerText = `you defend yourself`
             setTimeout(() => {
                 player.hp = Math.floor( player.hp-= (enemie.ap/2))
                 if (player.hp <= 0 ) {
-                    
-                    game.style.display =` none`
-                    return
-
-                }
-                if (enemie.hp <= 0) {
+                    winLose.src = "./public/assets/image/bg/lose.png"
+                    youWin.src = enemie.normal
                     win.style.display = 'flex'
                     info.style.display = `none`
                     game.style.display =` none`
-                    return
+
+                }
+                else if (enemie.hp <= 0) {
+                    winLose.src = "./public/assets/image/bg/win.png"
+                    youWin.src = player.normal
+                    win.style.display = 'flex'
+                    info.style.display = `none`
+                    game.style.display =` none`
+                    
+                    
                 }
                 youHp.innerText = `${player.hp } hp`
+                hp.style.width = `${player.hp}px`
                 you.style.filter= `grayscale(10000%)`
+                attack.play();
                 you.style.transition= `0s `
             }, 1000);
        
@@ -228,6 +264,7 @@ let defense = ()=>{
             cpu.style.transition = `0s`
             cpu.src = enemie.marche
             cpu.style.transform = `rotateY(180deg)`
+            text.innerText = ``
         }, 6500);
         setTimeout(() => {
             cpu.style.transition = `2s`
@@ -240,6 +277,7 @@ let defense = ()=>{
             cpu.style.transform = `rotateY(0deg)`
             btnAttack.style.display =`block `
             btnDefend.style.display =`block `
+
         }, 8000);
        
     })
