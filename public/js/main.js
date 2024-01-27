@@ -21,8 +21,15 @@ let  track1 = new Audio("./public/assets/music/Track 1.mp3");
 let  button = new Audio("./public/assets/music/button.mp3");
 let text = info.querySelectorAll(`p`)[2]
 
+// Ajouter un gestionnaire d'événement pour l'événement 'ended'
+track1.addEventListener('ended', function() {
+    // Réinitialiser la position de lecture à zéro
+    track1.currentTime = 0;
+    // Redémarrer la lecture
+    track1.play();
+});
 
-
+// Commencer la lectur
 
 
 //start
@@ -87,7 +94,7 @@ let fAttack = ()=>{
         button.play();
         btnAttack.style.display = `none`
         btnDefend.style.display = `none`
-        enemie.ap = Math.floor( Math.random() * (60 - 20) + 20);
+        enemie.ap = Math.floor( Math.random() * (50 - 20) + 20);
         console.log(enemie.ap);
         setTimeout(() => {
             you.src = player.marche
@@ -234,6 +241,7 @@ let defense = ()=>{
             you.src = player.defend
             text.innerText = `you defend yourself`
             setTimeout(() => {
+                enemie.ap = Math.floor( Math.random() * (50 - 20) + 20);
                 player.hp = Math.floor( player.hp-= (enemie.ap/2))
                 if (player.hp <= 0 ) {
                     winLose.src = "./public/assets/image/bg/lose.png"
